@@ -16,8 +16,8 @@ INCLUDES := source
 TITLE      := Celeste Classic
 APPID      := CELE00001
 CONTENTID  := UP0001-$(APPID)_00-0000000000000000
-SFOXML     := sfo.xml
-ICON0      := ICON0.PNG
+SFOXML     := ../sfo.xml
+ICON0      := ../ICON0.PNG
 
 CFLAGS   = -std=gnu99 -O2 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS = $(CFLAGS)
