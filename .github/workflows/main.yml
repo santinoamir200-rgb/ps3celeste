@@ -1,0 +1,20 @@
+name: build-ps3
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ps3dev/ps3dev:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          export PS3DEV=${PS3DEV:-/usr/local/ps3dev}
+          export PSL1GHT=${PSL1GHT:-$PS3DEV}
+          make && make pkg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: celeste-ps3
+          path: |
+            *.pkg
+            *.self
+            **/EBOOT.BIN
